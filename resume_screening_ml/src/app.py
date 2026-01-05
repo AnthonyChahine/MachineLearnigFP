@@ -4,6 +4,8 @@ Streamlit Web Application for Intelligent Resume Screening System
 
 import os
 import glob
+import traceback
+import re
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,7 +16,18 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
-import re
+
+
+# ==================== Constants ====================
+
+# Keywords for resume analysis
+MUST_HAVE_KEYWORDS = ["python", "sql", "excel"]
+NICE_TO_HAVE_KEYWORDS = ["pandas", "power bi", "tableau", "statistics", 
+                          "visualization", "scikit", "machine learning"]
+ADDITIONAL_KEYWORDS = ["data", "analysis", "analyst", "dashboard", "reporting"]
+
+# Combine all keywords for matching
+ALL_KEYWORDS = MUST_HAVE_KEYWORDS + NICE_TO_HAVE_KEYWORDS + ADDITIONAL_KEYWORDS
 
 
 # ==================== Reused Functions from main.py ====================
@@ -46,17 +59,13 @@ def build_training_data(job_text: str, resumes_df: pd.DataFrame):
     """
     Create training data with labels using rule-based baseline.
     """
-    # Quick keyword baseline for labeling (weak supervision)
-    must_have = ["python", "sql", "excel"]
-    nice = ["pandas", "power bi", "tableau", "statistics", "visualization", "scikit", "machine learning"]
-
     labels = []
     for t in resumes_df["text"].str.lower().tolist():
         score = 0
-        for k in must_have:
+        for k in MUST_HAVE_KEYWORDS:
             if k in t:
                 score += 2
-        for k in nice:
+        for k in NICE_TO_HAVE_KEYWORDS:
             if k in t:
                 score += 1
 
@@ -123,18 +132,11 @@ def categorize_candidate(score: float) -> str:
 
 def extract_matched_keywords(resume_text: str, job_text: str) -> list:
     """Extract keywords that appear in both resume and job description."""
-    # Common keywords to look for
-    keywords = [
-        "python", "sql", "excel", "pandas", "power bi", "tableau",
-        "statistics", "visualization", "scikit", "machine learning",
-        "data", "analysis", "analyst", "dashboard", "reporting"
-    ]
-    
     resume_lower = resume_text.lower()
     job_lower = job_text.lower()
     
     matched = []
-    for keyword in keywords:
+    for keyword in ALL_KEYWORDS:
         if keyword in resume_lower and keyword in job_lower:
             matched.append(keyword)
     
@@ -399,7 +401,6 @@ def main():
                             
                     except Exception as e:
                         st.error(f"Error during analysis: {e}")
-                        import traceback
                         st.error(traceback.format_exc())
     
     # ==================== Tab 2: View Sample Resumes ====================
