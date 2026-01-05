@@ -1,0 +1,3 @@
+Education: BS Information Systems
+Skills: SQL, Excel, Tableau, dashboards, Python basics
+Experience: internship in BI reporting

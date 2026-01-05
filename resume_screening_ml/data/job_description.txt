@@ -1,0 +1,3 @@
+We are hiring a Junior Data Analyst.
+Required: Python, SQL, Excel, data visualization, basic statistics.
+Nice to have: machine learning basics, pandas, Power BI or Tableau.

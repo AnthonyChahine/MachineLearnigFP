@@ -1,0 +1,19 @@
+candidate_file,text,relevance_score
+resume_03.txt,"Education: MS Statistics
+Skills: Python, SQL, statistics, visualization, machine learning basics
+Projects: regression and classification models",0.7740700343932324
+resume_05.txt,"Education: BS Information Systems
+Skills: SQL, Excel, Tableau, dashboards, Python basics
+Experience: internship in BI reporting",0.7740460246781942
+resume_01.txt,"Education: BS Computer Science
+Skills: Python, pandas, SQL, Excel, Power BI
+Projects: data cleaning pipeline, dashboard reporting",0.770718768081074
+resume_06.txt,"Education: BS Math
+Skills: Python, machine learning basics, scikit-learn, pandas, SQL
+Projects: classification model, data preprocessing",0.7601151850740786
+resume_02.txt,"Education: Business Administration
+Skills: Excel, communication, sales
+Experience: sales coordinator, customer support",0.7580649977017914
+resume_04.txt,"Education: BS Computer Engineering
+Skills: C++, embedded systems, IoT
+Projects: robotics, Arduino",0.6813618729590447

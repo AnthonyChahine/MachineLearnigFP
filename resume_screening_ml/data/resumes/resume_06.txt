@@ -1,0 +1,3 @@
+Education: BS Math
+Skills: Python, machine learning basics, scikit-learn, pandas, SQL
+Projects: classification model, data preprocessing

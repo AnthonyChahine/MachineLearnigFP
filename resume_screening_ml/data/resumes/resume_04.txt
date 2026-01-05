@@ -1,0 +1,3 @@
+Education: BS Computer Engineering
+Skills: C++, embedded systems, IoT
+Projects: robotics, Arduino

@@ -1,0 +1,3 @@
+Education: MS Statistics
+Skills: Python, SQL, statistics, visualization, machine learning basics
+Projects: regression and classification models

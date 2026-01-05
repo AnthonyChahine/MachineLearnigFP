@@ -1,0 +1,3 @@
+Education: BS Computer Science
+Skills: Python, pandas, SQL, Excel, Power BI
+Projects: data cleaning pipeline, dashboard reporting
